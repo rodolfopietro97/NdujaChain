@@ -6,4 +6,5 @@ With NdujaChain we link together:
 * **Scalability**
 * **Easy of usage**
 * **Eco sustainability**
+* **Interoperavility**
 * **"Calabresità"**
