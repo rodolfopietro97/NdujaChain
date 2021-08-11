@@ -6,5 +6,7 @@ With NdujaChain we link together:
 * **Scalability**
 * **Easy of usage**
 * **Eco sustainability**
-* **Interoperavility**
+* **Interoperability**
 * **"Calabresità"**
+
+**NdujaChain** is the implementation of experimental thesis **CratiChain**
