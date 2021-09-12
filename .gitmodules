@@ -1,3 +1,6 @@
 [submodule "CasoCavallo"]
 	path = CasoCavallo
 	url = https://github.com/rodolfopietro97/CasoCavallo.git
+[submodule "Cummare"]
+	path = Cummare
+	url = https://github.com/rodolfopietro97/Cummare
