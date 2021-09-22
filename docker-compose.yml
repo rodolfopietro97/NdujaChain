@@ -36,17 +36,35 @@ services:
         ipv4_address: '1.0.0.10'   
     command: [ 'redis-server', '/usr/local/etc/redis/redis.conf' ]
 
-  # Cummare P2P layer
-  cummare:
+  # Cummare P2P layer - Server
+  cummare_server:
     build: './Cummare'
     volumes: 
       - './Cummare:/app/cummare'
     stdin_open: true  # docker run -i
     tty: true
+    ports:
+      - 50052:50052
+      - 50053:50053
     networks: 
       casocavallo_network:
         ipv4_address: '1.0.0.12'
-    command: [ 'npm', 'run', 'serve' ]
+    command: [ 'npm', 'run', 'server' ]
+
+  # Cummare P2P layer - Updater
+  cummare_updater:
+    build: './Cummare'
+    volumes: 
+      - './Cummare:/app/cummare'
+    stdin_open: true  # docker run -i
+    tty: true
+    ports:
+      - 50052:50052
+      - 50053:50053
+    networks: 
+      casocavallo_network:
+        ipv4_address: '1.0.0.13'
+    command: [ 'npm', 'run', 'updater' ]
 
 
 
