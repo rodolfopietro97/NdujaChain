@@ -4,3 +4,6 @@
 [submodule "Cummare"]
 	path = Cummare
 	url = https://github.com/rodolfopietro97/Cummare
+[submodule "Fatigature"]
+	path = Fatigature
+	url = https://github.com/rodolfopietro97/Fatigature.git
