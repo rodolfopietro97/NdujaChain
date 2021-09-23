@@ -63,6 +63,19 @@ services:
         ipv4_address: '1.0.0.13'
     command: [ 'npm', 'run', 'refresher' ]
 
+  # Cummare P2P layer - Viewer
+  cummare_viewer:
+    build: './Cummare'
+    volumes: 
+      - './Cummare:/app/cummare'
+    stdin_open: true  # docker run -i
+    tty: true
+    networks: 
+      casocavallo_network:
+        ipv4_address: '1.0.0.14'
+    command: [ 'npm', 'run', 'viewer' ]
+
+
 
 
 
