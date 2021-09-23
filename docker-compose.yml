@@ -51,20 +51,17 @@ services:
         ipv4_address: '1.0.0.12'
     command: [ 'npm', 'run', 'server' ]
 
-  # Cummare P2P layer - Updater
-  cummare_updater:
+  # Cummare P2P layer - Refresher
+  cummare_refresher:
     build: './Cummare'
     volumes: 
       - './Cummare:/app/cummare'
     stdin_open: true  # docker run -i
     tty: true
-    ports:
-      - 50052:50052
-      - 50053:50053
     networks: 
       casocavallo_network:
         ipv4_address: '1.0.0.13'
-    command: [ 'npm', 'run', 'updater' ]
+    command: [ 'npm', 'run', 'refresher' ]
 
 
 
