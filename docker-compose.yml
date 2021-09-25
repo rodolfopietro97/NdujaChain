@@ -24,11 +24,11 @@ services:
       - './CasoCavallo/RandomGenerator:/app/casocavallo/random_generator'
     command: ['python', 'Generator.py']
 
-  # Redis server
-  redis:
-    build: './Redis'
-    ports: 
-      - '6379:6379'
+  # Redis server of Casocavallo
+  casocavallo_redis:
+    build: './CasoCavallo/Redis'
+    expose: 
+      - 6379
     stdin_open: true  # docker run -i
     tty: true
     networks: 
@@ -74,6 +74,18 @@ services:
       casocavallo_network:
         ipv4_address: '1.0.0.14'
     command: [ 'npm', 'run', 'viewer' ]
+
+  # Redis server of Cummare
+  cummare_redis:
+    build: './Cummare/Redis'
+    expose: 
+      - 6380
+    stdin_open: true  # docker run -i
+    tty: true
+    networks: 
+      casocavallo_network:
+        ipv4_address: '1.0.0.15'   
+    command: [ 'redis-server', '/usr/local/etc/redis/redis.conf' ]
 
 
 
