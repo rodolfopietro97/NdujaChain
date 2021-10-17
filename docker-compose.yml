@@ -5,7 +5,7 @@ version: '3'
 networks: 
   casocavallo_network:
     ipam:
-      config: 
+      config:
         - subnet: 1.0.0.0/24 
 
 
@@ -19,10 +19,10 @@ services:
     tty: true
     networks: 
       casocavallo_network:
-        ipv4_address: '1.0.0.11'
+        ipv4_address: '1.0.0.3'
     volumes: 
       - './CasoCavallo/RandomGenerator:/app/casocavallo/random_generator'
-    command: ['python', 'Generator.py']
+    command: ['sh', 'start.sh']
 
   # Redis server of Casocavallo
   casocavallo_redis:
@@ -33,32 +33,9 @@ services:
     tty: true
     networks: 
       casocavallo_network:
-        ipv4_address: '1.0.0.10'   
+        ipv4_address: '1.0.0.2'   
     command: [ 'redis-server', '/usr/local/etc/redis/redis.conf' ]
 
-  # CasoCavallo P2P layer - Server
-  casocavallo_p2player_server:
-    build: './CasoCavallo/P2PLayer'
-    volumes: 
-      - './CasoCavallo/P2PLayer:/app/casocavallo_p2p_layer'
-    stdin_open: true  # docker run -i
-    tty: true
-    networks: 
-      casocavallo_network:
-        ipv4_address: '1.0.0.16'
-    command: [ 'npm', 'run', 'server' ]
-
-  # CasoCavallo P2P layer - Client
-  casocavallo_p2player_client:
-    build: './CasoCavallo/P2PLayer'
-    volumes: 
-      - './CasoCavallo/P2PLayer:/app/casocavallo_p2p_layer'
-    stdin_open: true  # docker run -i
-    tty: true
-    networks: 
-      casocavallo_network:
-        ipv4_address: '1.0.0.17'
-    command: [ 'npm', 'run', 'client' ]
 
   # Cummare P2P layer - Server
   cummare_server:
@@ -72,72 +49,17 @@ services:
       - 50053:50053
     networks: 
       casocavallo_network:
-        ipv4_address: '1.0.0.12'
+        ipv4_address: '1.0.0.11'
     command: [ 'npm', 'run', 'server' ]
-
-  # Cummare P2P layer - Refresher
-  cummare_refresher:
-    build: './Cummare'
-    volumes: 
-      - './Cummare:/app/cummare'
-    stdin_open: true  # docker run -i
-    tty: true
-    networks: 
-      casocavallo_network:
-        ipv4_address: '1.0.0.13'
-    command: [ 'npm', 'run', 'refresher' ]
-
-  # Cummare P2P layer - Viewer
-  cummare_viewer:
-    build: './Cummare'
-    volumes: 
-      - './Cummare:/app/cummare'
-    stdin_open: true  # docker run -i
-    tty: true
-    networks: 
-      casocavallo_network:
-        ipv4_address: '1.0.0.14'
-    command: [ 'npm', 'run', 'viewer' ]
 
   # Redis server of Cummare
   cummare_redis:
     build: './Cummare/Redis'
     expose: 
-      - 6380
+      - 6379
     stdin_open: true  # docker run -i
     tty: true
     networks: 
       casocavallo_network:
-        ipv4_address: '1.0.0.15'   
+        ipv4_address: '1.0.0.10'   
     command: [ 'redis-server', '/usr/local/etc/redis/redis.conf' ]
-
-
-
-
-
-  # **************** EXPERIMENTAL SERRVICES USING LIBP2P **************** :
-  # Experimental P2P Layer - server
-  casocavallo_experimental_p2p_layer_server:
-    build: './CasoCavallo/EXPERIMENTAL_P2PLayer'
-    volumes: 
-      - './CasoCavallo/EXPERIMENTAL_P2PLayer:/app/casocavallo/p2p_layer'
-    stdin_open: true  # docker run -i
-    tty: true
-    networks: 
-      casocavallo_network:
-        ipv4_address: '1.0.0.13'
-    command: [ 'npm', 'run', 'server' ]
-
-  # Experimental P2P Layer - client
-  casocavallo_experimental_p2p_layer_client:
-    build: './CasoCavallo/EXPERIMENTAL_P2PLayer'
-    volumes: 
-      - './CasoCavallo/EXPERIMENTAL_P2PLayer:/app/casocavallo/p2p_layer'
-    stdin_open: true  # docker run -i
-    tty: true
-    networks: 
-      casocavallo_network:
-        ipv4_address: '1.0.0.14'
-    command: [ 'npm', 'run', 'client' ]
-
-
