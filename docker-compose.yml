@@ -38,11 +38,12 @@ services:
     command: [ 'redis-server', '/usr/local/etc/redis/redis.conf' ]
 
 
-  # Cummare P2P layer - Server
-  cummare_server:
+  # Cummare P2P layer
+  cummare:
     build: './Cummare'
     volumes: 
-      - './Cummare:/app/cummare'
+      - './Cummare:/app/cummare/p2p-pubsub-protocol'
+      - './Configurations:/app/cummare/Configurations'
     stdin_open: true  # docker run -i
     tty: true
     ports:

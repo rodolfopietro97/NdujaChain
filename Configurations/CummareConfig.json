@@ -1,0 +1,26 @@
+{
+    "bind": "0.0.0.0:50052",
+
+    "redis": {
+        "port": 6379,
+        "host": "1.0.0.2",
+        "family": 4,
+        "db": 0
+    },
+
+    "allowedTopics": [
+        "message",
+        "transaction",
+        "random_requests",
+        "random_responses",
+        "block_mining_requests",
+        "block_mining_responses",
+        "block_winning_requests"
+    ],
+
+    "maxTopicsAgeMilliseconds": 1000,
+    "doUpdateEveryMilliseconds": 500,
+
+    "viewEveryMilliseconds": 1000,
+    "maximumMessagesToDisplayInViewer": 10
+}
