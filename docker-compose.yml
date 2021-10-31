@@ -13,16 +13,17 @@ networks:
 services: 
 
   # Casocavallo Random Generator
-  casocavallo_random_generator:
-    build: './CasoCavallo/RandomGenerator'
+  casocavallo:
+    build: './CasoCavallo'
     stdin_open: true  # docker run -i
     tty: true
     networks: 
       casocavallo_network:
         ipv4_address: '1.0.0.3'
     volumes: 
-      - './CasoCavallo/RandomGenerator:/app/casocavallo/random_generator'
-    command: ['sh', 'start.sh']
+      - './CasoCavallo:/app/casocavallo/random_generator'
+      - './Configurations:/app/casocavallo/Configurations'
+    command: ['python', 'main.py']
 
   # Redis server
   redis:
