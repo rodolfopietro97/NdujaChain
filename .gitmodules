@@ -7,6 +7,3 @@
 [submodule "Fatigature"]
 	path = Fatigature
 	url = https://github.com/rodolfopietro97/Fatigature.git
-[submodule "Picinusu"]
-	path = Picinusu
-	url = https://github.com/rodolfopietro97/Picinusu.git
