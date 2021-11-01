@@ -15,7 +15,8 @@
         "random_responses",
         "block_mining_requests",
         "block_mining_responses",
-        "block_winning_requests"
+        "boss_lotteries",
+        "current_lottery"
     ],
 
     "maxTopicsAgeMilliseconds": 1000,
