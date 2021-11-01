@@ -1,0 +1,12 @@
+{
+    "CummareServer": "127.0.0.1:50052",
+    "Topics": {
+        "transaction": "transaction",
+        "message": "message",
+        "random_requests": "random_requests",
+        "random_responses": "random_responses",
+        "block_mining_requests": "block_mining_requests",
+        "block_mining_responses": "block_mining_responses",
+        "block_winning_requests": "block_winning_requests"
+    }
+}

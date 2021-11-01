@@ -38,6 +38,6 @@
         "database": 0,
         "connection_timeout": 5
     },
-    "useViewer": true,
+    "useViewer": false,
     "doInitialPerformancesTest": false
 }
