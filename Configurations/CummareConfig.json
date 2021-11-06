@@ -23,5 +23,5 @@
     "doUpdateEveryMilliseconds": 500,
 
     "viewEveryMilliseconds": 1000,
-    "maximumMessagesToDisplayInViewer": 10
+    "maximumMessagesToDisplayInViewer": 5
 }
